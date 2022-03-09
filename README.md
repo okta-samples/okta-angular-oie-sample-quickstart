@@ -1,27 +1,30 @@
-# AngularOie
+# Okta Angular OIE Sample App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.5.
+This is an Angular sample app demonstrating OIE capabilities.
 
-## Development server
+## Getting going
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+```shell
+git clone git@github.com:okta-samples/okta-angular-oie-sample-quickstart.git
+cd okta-angular-oie-sample-quickstart
+npm ci
+```
 
-## Code scaffolding
+Update `src/app/okta-config.ts` with your Okta application credentials.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+To serve the app run 
 
-## Build
+```shell
+npm start
+ng serve --port=8080
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+## Run unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```shell
+npm run test
+ng test
+```
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.5 and uses Okta AuthJS lib version 6.2.

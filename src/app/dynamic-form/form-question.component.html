@@ -1,0 +1,56 @@
+<div [formGroup]="form" class="question">
+
+  <ng-container [ngSwitch]="question.controlType">
+
+    <ng-container *ngSwitchCase="'input'">
+      <label>
+        {{question.label}}
+        <input [formControlName]="question.key"
+               [type]="question.inputType"
+               [name]="question.key"
+               [required]="question.required"
+        />
+      </label>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'checkbox'">
+      <!--
+      Angular Reactive Forms has a bug where setting the input type dynamically doesn't bind the changes to the form control
+      for type="checkbox" and type="numeric". Angular team might be waiting for typed forms before addressing this, IMO.
+      See https://github.com/angular/angular/issues/13243
+      -->
+      <label>
+        {{question.label}}
+        <input [formControlName]="question.key"
+               type="checkbox"
+               [name]="question.key"
+               [required]="question.required"
+        />
+      </label>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'select'">
+      <label>
+        {{question.label}}
+        <select [name]="question.key" [formControlName]="question.key">
+          <option value="" disabled>---</option>
+          <option *ngFor="let opt of question.options" [value]="opt.value">{{opt.label}}</option>
+        </select>
+      </label>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'authenticator'">
+      <h3>{{question.key}}</h3>
+      <div>{{question.authenticator?.secret}}</div>
+      <img src="{{question.authenticator?.qrCodeUrl}}" alt="QR code for authenticator"/>
+    </ng-container>
+
+  </ng-container>
+
+  <div class="error" *ngIf="fc.invalid && fc.touched">
+    <div *ngIf="fc.errors?.['required']">{{question.label}} is required</div>
+    <div *ngIf="fc.errors?.['minlength']">Use {{question.minLength}} characters or more</div>
+    <div *ngIf="fc.errors?.['maxlength']">Use {{question.maxLength}} characters or less</div>
+  </div>
+
+</div>

@@ -1,0 +1,8 @@
+<div *ngIf="!isAuthenticated">
+  <button #login>Login</button>
+  <button #recover>Recover Password</button>
+  <button #registration>Registration</button>
+  <button #idp>IDP</button>
+</div>
+  <button *ngIf="isAuthenticated" (click)="onLogout()">Logout</button>
+

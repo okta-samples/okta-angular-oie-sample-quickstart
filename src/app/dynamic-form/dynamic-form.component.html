@@ -1,0 +1,13 @@
+<h3>{{formTitle}}</h3>
+<form (ngSubmit)="onSubmit()" [formGroup]="form">
+
+  <div *ngFor="let question of questions">
+    <app-form-question [question]="question" [form]="form"></app-form-question>
+  </div>
+
+  <div>
+    <button type="submit" [disabled]="!form.valid">Submit</button>
+    <button type="button" *ngIf="canSkip" (click)="onSkip()">Skip</button>
+    <button type="button" (click)="onCancel()">Cancel</button>
+  </div>
+</form>
