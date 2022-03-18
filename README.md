@@ -1,6 +1,16 @@
 # Okta Angular OIE Sample App
 
-This is an Angular sample app demonstrating OIE capabilities.
+This is an Angular sample app demonstrating OIE capabilities. This app supports (tested)
+
+* Login with username/password
+* Login with username/password + Email code or Magic Link
+* Recover password
+* Registration with Google authenticator, security question, email factor
+
+Not supported
+
+* Okta Verify
+* Social login
 
 ## Getting going
 
