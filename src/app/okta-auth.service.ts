@@ -41,8 +41,6 @@ export type FLOW_TYPE = 'authenticate' | 'recoverPassword' | 'register' | 'idp';
   providedIn: 'root'
 })
 export class OktaAuthService implements OnDestroy {
-  private log$!: Subscription;
-  private tokenHandler$!: Subscription;
   private destroySub$: Subject<void> = new Subject<void>();
   private appAuthStateSub$: BehaviorSubject<AppAuthState> = new BehaviorSubject<AppAuthState>(defaultAppAuthState);
 
@@ -58,14 +56,14 @@ export class OktaAuthService implements OnDestroy {
     this.oktaAuth.authStateManager.subscribe(this.authStateHandler);
     this.oktaAuth.start();
 
-    this.log$ = this.appAuthStateSub$.asObservable().pipe(
+    this.appAuthStateSub$.asObservable().pipe(
       filter(state => !!state.transaction),
       distinctUntilKeyChanged('transaction'),
       map(state => state.transaction as IdxTransaction),
       takeUntil(this.destroySub$)
     ).subscribe(transaction => console.log(transaction));
 
-    this.tokenHandler$ = this.appAuthStateSub$.asObservable().pipe(
+    this.appAuthStateSub$.asObservable().pipe(
       filter(state => !!state.transaction && !!state.transaction.tokens),
       map(state => state.transaction?.tokens as Tokens),
       takeUntil(this.destroySub$)

@@ -5,14 +5,12 @@ import {
   merge, mergeMap, Observable, of, shareReplay, Subject,
 } from 'rxjs';
 import { IdxMessage, NextStep } from '@okta/okta-auth-js';
-import { FormTransformerService } from './form-transformer.service';
 import { UserAction } from './dynamic-form/dynamic-form.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  providers: [FormTransformerService]
 })
 export class AppComponent implements OnInit {
 

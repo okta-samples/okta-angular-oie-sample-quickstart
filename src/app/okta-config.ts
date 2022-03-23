@@ -4,7 +4,7 @@ import { DOCUMENT } from '@angular/common';
 import { Router } from '@angular/router';
 
 const oidcConfig = {
-  clientId: '{yourClientId}',
+  clientId: '{clientId}',
   issuer: 'https://{yourOktaDomain}/oauth2/default',
   scopes: ['openid', 'profile', 'email'],
   pkce: true

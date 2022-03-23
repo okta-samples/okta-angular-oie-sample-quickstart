@@ -1,7 +1,3 @@
-<header>
-  <h1>Angular OIE Example App</h1>
-</header>
-
 <main>
   <app-menu [isAuthenticated]="(isAuthenticated$ | async) ?? false" (startFlow)="onFlow($event)" (logout)="onLogout()"></app-menu>
   <ng-container *ngIf="idxMessages$ | async as messages">
