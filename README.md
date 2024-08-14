@@ -23,7 +23,9 @@ If you haven't done so already, register for a free account at [developer.okta.c
 
 Register your application by selecting **Applications** > **Add Application**. On the next screen, choose **SPA App** and click **Next**.
 
-On the following screen, edit the application settings. For ExpressJS applications running in developer mode, the port number should be 8080. Configure your app as follows:
+On the following screen, edit the application settings. Enable the checkbox for **Refresh Token**.
+
+For ExpressJS applications running in developer mode, the port number should be 8080. Configure your app as follows:
 
 * **Initiate Login URI**: `http://localhost:4200`
 * **Login redirect URI**: `http://localhost:4200/login/callback`

@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 const oidcConfig = {
   clientId: '{clientId}',
   issuer: 'https://{yourOktaDomain}/oauth2/default',
-  scopes: ['openid', 'profile', 'email'],
+  scopes: ['openid', 'offline_access', 'profile', 'email'],
   pkce: true
 };
 
